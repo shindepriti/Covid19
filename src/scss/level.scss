@@ -1,0 +1,32 @@
+.level-container{
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10% 0% 0% 30%;
+}
+h1 {
+    font-family: 'archia';
+    font-size: 24px !important;
+    font-weight: 900;
+  }
+h3 {
+  font-size: 14px !important;
+  font-weight: 900;
+}
+
+h4 {
+    text-align: center;
+    font-size: 13px !important;
+    font-weight: 900;
+}
+  
+  h5 {
+        
+    font-family: 'archia';
+    font-size: 12px !important;
+    font-weight: 900;
+    text-align: center;
+  }
+  
