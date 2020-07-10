@@ -1,0 +1,51 @@
+@import 'color';
+
+.table-container {
+    align-self: center;
+    border-radius: 3px;
+    font-size: 12px;
+    margin-bottom: 2.5rem;
+    overflow-x: auto;
+    width: 35rem;
+    background-color: $gray-hover !important;
+ 
+    .tablePaper{
+      background-color:#f6f6f7 ;
+      
+    }
+    .subTable{
+      background-color: white;
+    }
+    .statistic {
+      align-items: flex-end;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+  
+      .total {
+        font-size: 14px;
+      }
+  
+      .is-confirmed {
+        color: $cherry;
+      }
+  
+      .is-recovered {
+        color: $green;
+      }
+  
+      .is-deceased {
+        color: $gray;
+      }
+    }
+   
+    .is-active {
+        color: $blue;
+    }
+
+    .tablerow{
+        align-items: flex-end;
+      }
+}   
+    
+  

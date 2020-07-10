@@ -1,3 +1,10 @@
+ /***************************************************************
+ * @purpose  : Define Rows Of  
+ * @file     : Row.jsx             
+ * @overview : Componet To Handel Rows of Table Ui  
+ * @author   : priti shinde
+ * @since    : 5/6/2020
+***************************************************************/
 import React from 'react';
 
 import Table from '@material-ui/core/Table';
@@ -21,6 +28,10 @@ class Row extends React.Component{
             data:this.props.data,
             open:false
         }
+    }
+    componentDidUpdate(prevProps){
+        if(prevProps !== this.props)
+            this.setState({code:this.props.code,data:this.props.data});
     }
 
     toggleSubTable=()=> {

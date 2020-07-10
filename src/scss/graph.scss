@@ -1,0 +1,182 @@
+@import 'color';
+.Timeseries {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    width: 100%;
+  
+    .stats {
+      border-radius: 3px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      left: 0.5rem;
+      padding: 0.25rem;
+      pointer-events: none;
+      position: absolute;
+      top: 0.5rem;
+  
+      h2,
+      h5,
+      h6 {
+        color: $cherry-mid;
+        margin: 0;
+        transition: all 0.15s ease-in-out;
+      }
+  
+      h5 {
+        &.title {
+          color: $cherry-mid;
+        }
+      }
+  
+      h2,
+      h6 {
+        color: $cherry;
+      }
+  
+      .stats-bottom {
+        display: flex;
+        flex-direction: row;
+  
+        h6 {
+          margin-bottom: 0.1rem;
+          margin-left: 0.25rem;
+        }
+  
+        & > * {
+          margin-top: auto;
+        }
+      }
+  
+      &.is-recovered {
+        h5 {
+          color: $green-mid;
+  
+          &.title {
+            color: $green-mid;
+          }
+        }
+  
+        h2,
+        h6 {
+          color: $green;
+        }
+      }
+  
+      &.is-deceased {
+        h5 {
+          color: $gray-mid;
+  
+          &.title {
+            color: $gray-mid;
+          }
+        }
+  
+        h2,
+        h6 {
+          color: $gray;
+        }
+      }
+  
+      &.is-active {
+        h5 {
+          color: $blue-mid;
+  
+          &.title {
+            color: $blue-mid;
+          }
+        }
+  
+        h2,
+        h6 {
+          color: $blue;
+        }
+      }
+    }
+  
+    .svg-parent {
+      align-self: center;
+      background: $cherry-light;
+      border-radius: 5px;
+      display: flex;
+      position: relative;
+      width: 30rem;
+      margin-bottom: 1rem;
+  
+      svg {
+        width: 100%;
+  
+        .domain,
+        .tick,
+        line {
+          stroke: $cherry;
+          stroke-width: 1.5;
+        }
+  
+        text {
+          color: $cherry-mid;
+          font-size: 9px;
+          font-weight: 600;
+          stroke: transparent;
+        }
+      }
+  
+      &.is-recovered {
+        background: $green-light;
+  
+        svg {
+          .domain,
+          .tick,
+          line {
+            stroke: $green;
+          }
+  
+          text {
+            color: $green-mid;
+            stroke: transparent;
+          }
+        }
+      }
+  
+      &.is-deceased {
+        background: $gray-light;
+  
+        svg {
+          .domain,
+          .tick,
+          line {
+            stroke: $gray;
+          }
+  
+          text {
+            color: $gray-mid;
+            stroke: transparent;
+          }
+        }
+      }
+  
+      &.is-active {
+        background: $blue-light;
+  
+        svg {
+          .domain,
+          .tick,
+          line {
+            stroke: $blue;
+          }
+  
+          text {
+            color: $blue-mid;
+            stroke: transparent;
+          }
+        }
+      }
+    }
+  }
+  .fadeInUp {
+    animation-duration: 0.45s;
+    animation-fill-mode: both;
+    animation-name: fadeInUp;
+  }
+  

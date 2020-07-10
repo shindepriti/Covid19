@@ -1,0 +1,32 @@
+.Home {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 10rem;
+    margin-right: 5rem;
+    padding-top: 5rem;
+  
+    .home-left,
+    .home-right {
+      display: flex;
+      flex-direction: column;
+      width: 35rem;
+    }
+  
+    .home-left {
+      margin-left: 2.5rem;
+      margin-right: 2.5rem;
+      min-height: 60rem;
+    }
+  
+    .home-right {
+      margin-left: 2.5rem;
+      margin-right: 2.5rem;
+      min-height: 10rem;
+    }
+  
+    .header {
+      z-index: 99;
+    }
+  }

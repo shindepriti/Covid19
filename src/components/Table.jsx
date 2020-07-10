@@ -1,5 +1,6 @@
-import React from 'react';
 
+import React from 'react';
+import '../scss/table.scss'
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -15,6 +16,11 @@ class TableData extends React.Component{
         this.state={
             data:this.props.data
         }
+    }
+
+    componentDidUpdate(prevProps){
+        if(prevProps !== this.props)
+            this.setState({data:this.props.data});
     }
    
     render(){
@@ -37,7 +43,7 @@ class TableData extends React.Component{
                             { Object.keys(this.state.data)
                             .filter((stateCode)=> stateCode !== 'TT')
                             .map((stateCode)=>(
-                                <Row key={stateCode} code={stateCode} data={this.state.data[stateCode]} ></Row>
+                                <Row  id="table" key={stateCode} code={stateCode} data={this.state.data[stateCode]} ></Row>
                             ))}
                         <Row key={'TT'} code={'TT'} data={this.state.data['TT']} ></Row>
                         </TableBody>

@@ -1,0 +1,15 @@
+$color:rgba(0, 0, 0, 0.54);
+
+.searchform{
+    box-shadow:0 10px 35px rgba(0,0,0,.1);
+    margin-bottom: 25px !important;
+    height: 100%;
+    
+}
+.searchinput{
+    height: 60px;
+}
+.searchicon{
+    color: $color;
+    margin-left: 10px;
+}

@@ -1,11 +1,11 @@
 import React, { useRef, useEffect,  } from "react";
+// eslint-disable-next-line no-unused-vars
 import {transition} from 'd3-transition';
 import {min, max} from 'd3-array';
-// import {interpolatePath} from 'd3-interpolate-path';
 import {scaleTime, scaleLinear} from 'd3-scale';
 import {select} from 'd3-selection';
 import {line, curveMonotoneX} from 'd3-shape';
-
+import '../scss/minigraph.scss'
 import {PRIMARY_STATISTICS,COLORS,getStatistic,parseIndiaDate} from '../utils/commonfunc';
 
 function MiniGraph({timeseries}) {

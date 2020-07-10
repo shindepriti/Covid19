@@ -11,6 +11,11 @@ class Level extends React.Component{
         }
     }
 
+    componentDidUpdate(prevProps){
+        if(prevProps !== this.props)
+            this.setState({data:this.props.data});
+    }
+
     render(){
         return(
             <div className="Level">

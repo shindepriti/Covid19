@@ -1,13 +1,18 @@
-import React, { useCallback, useEffect, useRef, useMemo, useState} from "react";
+ /***************************************************************
+ * @purpose  : Define Graph 
+ * @file     : TimeseriesGraph.jsx             
+ * @overview : Componet To Handel To Graph  
+ * @author   : priti shinde
+ * @since    : 5/6/2020
+***************************************************************/
+
 import {min, max, bisector} from 'd3-array';
 import {axisBottom, axisRight} from 'd3-axis';
-import {interpolatePath} from 'd3-interpolate-path';
+import '../scss/graph.scss'
 import {scaleTime, scaleLinear} from 'd3-scale';
 import {select, mouse} from 'd3-selection';
-import {line, curveMonotoneX} from 'd3-shape';
-
 import {PRIMARY_STATISTICS,COLORS,getStatistic,parseIndiaDate,formatDate,capitalize} from '../utils/commonfunc';
-
+import React, { useCallback, useEffect, useRef, useMemo, useState} from "react";
 function TimeseriesGraph({stateCode,timeseries}) {
 
     const refs = useRef([]);
@@ -143,88 +148,13 @@ function TimeseriesGraph({stateCode,timeseries}) {
             .attr('cx', (date) => xScale(parseIndiaDate(date)))
             .attr('cy', (date) =>
               yScale(getStatistic(selectedTimeseries[date], 'total', statistic))
-            );
-       
-            const linePath = line()
-              .curve(curveMonotoneX)
-              .x((date) => xScale(parseIndiaDate(date)))
-              .y((date) =>
-                yScale(getStatistic(selectedTimeseries[date], 'total', statistic))
-              );
-    
-            let pathLength;
-    
-            svg
-              .selectAll('.trend')
-              .data(T ? [dates] : [])
-              .join(
-                (enter) =>
-                  enter
-                    .append('path')
-                    .attr('class', 'trend')
-                    .attr('fill', 'none')
-                    .attr('stroke', color + '50')
-                    .attr('stroke-width', 4)
-                    .attr('d', linePath)
-                    .attr('stroke-dasharray', function () {
-                      return (pathLength = this.getTotalLength());
-                    })
-                    .call((enter) =>
-                      enter
-                        .attr('stroke-dashoffset', pathLength)
-                        .transition(t)
-                        .attr('stroke-dashoffset', 0)
-                    ),
-                (update) =>
-                  update
-                    .attr('stroke-dasharray', null)
-                    .transition(t)
-                    .attrTween('d', function (date) {
-                      const previous = select(this).attr('d');
-                      const current = linePath(date);
-                      return interpolatePath(previous, current);
-                    })
-              );
-    
-            svg
-              .selectAll('.trend')
-              .data(T ? [dates] : [])
-              .join(
-                (enter) =>
-                  enter
-                    .append('path')
-                    .attr('class', 'trend')
-                    .attr('fill', 'none')
-                    .attr('stroke', color + '50')
-                    .attr('stroke-width', 4)
-                    .attr('d', linePath)
-                    .attr('stroke-dasharray', function () {
-                      return (pathLength = this.getTotalLength());
-                    })
-                    .call((enter) =>
-                      enter
-                        .attr('stroke-dashoffset', pathLength)
-                        .transition(t)
-                        .attr('stroke-dashoffset', 0)
-                    ),
-                (update) =>
-                  update
-                    .attr('stroke-dasharray', null)
-                    .transition(t)
-                    .attrTween('d', function (date) {
-                      const previous = select(this).attr('d');
-                      const current = linePath(date);
-                      return interpolatePath(previous, current);
-                    })
-              );
-        
+            );         
     
           svg.selectAll('*').attr('pointer-events', 'none');
           svg
             .on('mousemove', mousemove)
-            .on('touchmove', mousemove)
             .on('mouseout', mouseout)
-            .on('touchend', mouseout);
+            
         });
       }, [selectedTimeseries, dates]);
     
